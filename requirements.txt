@@ -3,3 +3,4 @@ matplotlib
 pathcensus
 ipywidgets
 igraph
+networkx

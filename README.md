@@ -16,4 +16,8 @@ The recent paper [Structural measures of similarity and complementarity in compl
 
 ## Individual Contributions
 
-ToDo
+| File                 | Description       | Contributors   
+|---|---|---|
+| project_proposal.pdf | Project proposal       | Keisuke Yokota, Alen Frey  |   
+| -                    | Data preparation       |                            |   
+| -                    | Result Visualisation   |                            |   

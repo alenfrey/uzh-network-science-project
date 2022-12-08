@@ -2,6 +2,7 @@ from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
+from sparklines import sparklines
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # PATHS AND FILES
@@ -9,7 +10,8 @@ import networkx as nx
 
 PROJECT_ROOT_DIR_PATH = Path(__file__).parent.absolute()  # project root dir path
 DATA_DIR_PATH = PROJECT_ROOT_DIR_PATH / "data"  # data dir path
-
+ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online" # online networks data dir path
+ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online" # offline networks data dir path
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # FUNCTIONS
@@ -68,3 +70,12 @@ def plot_labeled_scatter(x, y, x_label, y_label, title) -> None:
     plt.ylabel(y_label)
     plt.title(title)
     plt.show()
+
+
+def sparkline_str(x):
+    bins=np.histogram(x)[0]
+    sl = ''.join(sparklines(bins))
+    return sl
+    sparkline_str.__name__ = "sparkline"
+
+sparkline_str.__name__ = "sparkline"

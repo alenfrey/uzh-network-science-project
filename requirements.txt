@@ -4,3 +4,5 @@ pathcensus
 ipywidgets
 igraph
 networkx
+markdown-word-count
+lxml

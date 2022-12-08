@@ -1,8 +1,11 @@
-from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
+import zstandard
+import urllib.request
+
 from sparklines import sparklines
+from pathlib import Path
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # PATHS AND FILES
@@ -79,3 +82,12 @@ def sparkline_str(x):
     sparkline_str.__name__ = "sparkline"
 
 sparkline_str.__name__ = "sparkline"
+
+
+def download_and_extract(url, out_path):
+    """
+    Download and extract a zstandard compressed file from a url.
+    """
+    dctx = zstandard.ZstdDecompressor()
+    with urllib.request.urlopen(url) as url:
+        dctx.copy_stream(url, open(out_path, 'wb'))

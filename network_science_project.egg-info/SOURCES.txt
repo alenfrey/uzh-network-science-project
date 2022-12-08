@@ -1,0 +1,6 @@
+README.md
+setup.py
+network_science_project.egg-info/PKG-INFO
+network_science_project.egg-info/SOURCES.txt
+network_science_project.egg-info/dependency_links.txt
+network_science_project.egg-info/top_level.txt

@@ -6,3 +6,5 @@ igraph
 networkx
 markdown-word-count
 lxml
+-e .
+black

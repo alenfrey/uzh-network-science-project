@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import zstandard
 import urllib.request
+import pandas as pd
 
 from sparklines import sparklines
 from pathlib import Path
@@ -91,3 +92,31 @@ def download_and_extract(url, out_path):
     dctx = zstandard.ZstdDecompressor()
     with urllib.request.urlopen(url) as url:
         dctx.copy_stream(url, open(out_path, 'wb'))
+
+
+def get_filename_from_url(url: str) -> str:
+    """
+    Get filename from url.
+    """
+    return url.split("/")[-1]
+
+
+def get_group_name_from_url(url: str) -> str:
+    """
+    Get group from url.
+    """
+    return url.split("/")[-3]
+
+
+def remove_file_suffix(filename: str) -> str:
+    """
+    Remove file suffix from filename.
+    """
+    return ".".join([filename.split(".")[0], filename.split(".")[1]])
+
+
+def change_file_suffix(filename: str, suffix: str) -> str:
+    """
+    Change file suffix from filename.
+    """
+    return ".".join([filename.split(".")[0], suffix])

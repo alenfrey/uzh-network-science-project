@@ -7,6 +7,7 @@ import pandas as pd
 import json
 import tempfile
 import igraph as ig
+import re
 
 from collections import namedtuple
 from sparklines import sparklines
@@ -193,12 +194,12 @@ def gml_cleaner(gml_file_path):
         valid_lines = [
             line for line in (filter(valid_gml_filter_special_cases, valid_lines))
         ]
-        # valid_lines.insert(1, "multigraph 1\n")
-        # print(valid_lines[:3])
+        valid_lines.insert(1, "multigraph 1\n")
+        #print(valid_lines[:3])
 
-        # with open(DATA_DIR_PATH / "test.txt", "w") as output:
-        #    for valid_line in valid_lines:
-        #     output.write(valid_line)
+        with open(DATA_DIR_PATH / "test.txt", "w") as output:
+           for valid_line in valid_lines:
+            output.write(valid_line)
         tf = tempfile.TemporaryFile()
 
         tf.write(bytes("".join(valid_lines), encoding="utf-8"))
@@ -215,3 +216,8 @@ def igraph_to_networkx(graph: ig.Graph) -> nx.Graph:
 def networkx_to_igraph(graph: nx.Graph) -> ig.Graph:
     """Convert networkx to igraph."""
     return ig.Graph.TupleList(graph.edges())
+
+
+def get_digits_from_string(string: str) -> str:
+    """Get digits from string."""
+    return re.sub("[^0-9]", "", string)

@@ -77,9 +77,9 @@ which is rather heavy.
     - [ ] Load the datasets and check basic stats
     - [ ] Create additional visualisations and statistics 
 - [x] Reproduce the results of the paper with their methodology (paper_replication folder)
-- [ ] Implement the algorithms from the paper in networkx (optional)
-  - [ ] Structural similarity [in progress @Alen]
-  - [ ] Structural complementarity
+- [x] ~~Implement the algorithms from the paper in networkx~~ -> tested and works already
+  - [x] ~~Structural similarity~~
+  - [x] ~~Structural complementarity~~
 - [ ] Reproduce the results of the paper on other social networks
   - [ ] Large online networks [in progress @Alen] (original_method_large_online.ipynb)
   - [ ] Small online networks

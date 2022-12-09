@@ -19,8 +19,9 @@ from pathlib import Path
 PROJECT_ROOT_DIR_PATH = Path(__file__).parent.absolute()  # project root dir path
 DATA_DIR_PATH = PROJECT_ROOT_DIR_PATH / "data"  # data dir path
 ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online"  # online networks data dir path
-ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online"  # offline networks data dir path
+OFFLINE_DATA_DIR_PATH = DATA_DIR_PATH / "offline"  # offline networks data dir path
 
+FIGURE_DIR_PATH = PROJECT_ROOT_DIR_PATH / "figures"  # figures dir path
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # FUNCTIONS
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

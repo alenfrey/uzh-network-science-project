@@ -5,6 +5,7 @@ import zstandard
 import urllib.request
 import pandas as pd
 
+from collections import namedtuple
 from sparklines import sparklines
 from pathlib import Path
 
@@ -23,10 +24,13 @@ ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online" # offline networks data dir path
 
 
 def degree_array(g: nx.Graph) -> np.array:
-    """
-    List of degrees of a nx.Graph
-    """
+    """List of degrees of a nx.Graph."""
     return np.array([degree for node, degree in g.degree()])
+
+
+def average_degree(g: nx.Graph) -> np.float64:
+    """Average degree ⟨k⟩ of a nx.Graph."""
+    return np.mean(degree_array(g))
 
 
 def logarithmic_bins(values: np.array, n_bins: int) -> np.array:
@@ -37,7 +41,25 @@ def logarithmic_bins(values: np.array, n_bins: int) -> np.array:
     # np.geomspace(min(values), max(values) + 1, num=n_bins) is functionally equivalent
     return np.logspace(np.log10(min(values)), np.log10(max(values) + 1), n_bins + 1)
 
+def max_degree(g: nx.Graph):
+    """Node with the highest degree
+    in a nx.Graph.
 
+    If there are multiple nodes with the maximum degree,
+    then only of them is returned.
+
+    Returns
+    -------
+    Named tuple where index 0 contains the id of
+    the node with the highest degree, and index 1
+    contains the degree.
+    """
+    MaxDegreeTuple = namedtuple(
+    "MaxDegreeTuple", ["id", "degree"]
+)  # define max degree as named tuple
+    return MaxDegreeTuple(*max(g.degree(), key=lambda t: t[1]))  # return namedtuple
+
+    
 def plot_distribution(
     values,
     title,

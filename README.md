@@ -29,28 +29,23 @@ quadrangles in large online social networks.
 ## Installation
 
 Python 3.8.3 is used for this project.
-Make sure you have [miniconda](https://docs.conda.io/en/latest/miniconda.html) (or anaconda) installed,
-then **in the project root directory** run
+To install the packages, run the following commandsa in the **project root directory**.
+(You might want to create a virtual envirionment first)
 
 ```bash
-conda config --add channels conda-forge
-conda env create --file environment.yml 
-```
-
-to create a conda environment with all the required packages.  
-This will install the necessary libraries including **graph-tool**.  
-After the setup is complete, activate the environment with
-
-```bash
-conda activate ns-project
+pip install -r requirements.txt
 ```
 
 ## Data
 
-Data used in this project is from:
+Data used in this project is from the following sources:
 * [Netzschleuder](https://networks.skewed.de/)
 
-
+The authors of the original paper used **graph-tool** for downloading 
+the files from the page mentioned above. We created our own script
+to download the files without relying on graph-tool, since the
+installation is cumbersome and forces the use of miniconda/anaconda
+which is rather heavy.
 
 
 ## Individual Contributions

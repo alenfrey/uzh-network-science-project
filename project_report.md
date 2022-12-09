@@ -23,6 +23,10 @@ The paper "Structural measures of similarity and complementatiry in complex netw
 
 **Write more about the paper here - should be easily possible to get around pages from just summarizing the paper methods and results related to social networks that are important for our project.**
 
+* Describe the similarity and complementarity measures
+* Describe the motifs
+
+
 ## Social Network Analysis
 
 Social network analysis is the study of social networks, which are networks of individuals or organizations that are connected by social relationships. There are many different measures that are commonly used in social network analysis to quantify and analyze the structure and properties of social networks. Some examples of these measures include:
@@ -92,7 +96,7 @@ To download the datasets, we have written a script that downloads the datasets a
 
 ### Null Model
 
-An undirected binary configuration model (UBCM) is a random graph model that can be used to generate networks with a given degree sequence. To fit this model to a network, you would need to first determine the degree sequence of the network, which is a list of the degrees of all the nodes in the network.
+An undirected binary configuration model (UBCM) is a (exponential) random graph model that can be used to generate networks with a given degree sequence. To fit this model to a network, you would need to first determine the degree sequence of the network, which is a list of the degrees of all the nodes in the network.
 
 Once you have the degree sequence, you can use it to generate a random graph using the configuration model. To do this, you would first create a list of stubs for each node, where the number of stubs for a node is equal to its degree. You would then randomly connect pairs of stubs until all of the stubs have been matched, resulting in a random graph with the same degree sequence as the original network.
 
@@ -103,6 +107,8 @@ We fitted undirected binary configuration models (UBCM)to the networks, and samp
 ## Summary
 
 **Write a summary of the results here, i think it will probably be 1-2 pages.**
+
+
 
 ## Author Contributions
 

@@ -47,6 +47,41 @@ to download the files without relying on graph-tool, since the
 installation is cumbersome and forces the use of miniconda/anaconda
 which is rather heavy.
 
+## Open Tasks
+
+- [x] Prepare datasets (group_available_datasets.ipynb)
+  - [x] Find available datasets
+  - [x] Group the datasets
+- [x] Create reproducible dataset download script (download_datasets.ipynb)
+- [ ] Explore and visualise properties of the datasets (explore_network_properties.ipynb)
+  - [ ] Online Networks 
+    - [x] Load the datasets and check basic stats
+    - [ ] Create additional visualisations and statistics
+  - [ ] Offline Networks
+    - [ ] Load the datasets and check basic stats
+    - [ ] Create additional visualisations and statistics 
+- [ ] Implement the algorithms from the paper in networkx (optional)
+  - [ ] Structural similarity
+  - [ ] Structural complementarity
+- [ ] Reproduce the results of the paper on other social networks
+  - [ ] Large online networks
+  - [ ] Small online networks
+  - [ ] Large offline networks
+  - [ ] Small offline networks 
+- [ ] Finish report
+- [ ] Create presentation slides
+- [ ] Film video presentation
+
+
+## Checklist for Submission
+
+- [ ] all code used
+- [ ] all data used
+- [ ] written report
+- [ ] video presentation (20 min)
+- [ ] slides of presentation
+
+
 
 ## Individual Contributions
 

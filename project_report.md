@@ -5,17 +5,35 @@
 
 ## Final Project Report
 
+Alen Frey (Immatriculation Number1), Author2 (Immatriculation Number1), …. 
+
+Network Science (HS22) 
+
+Date
+
 ## Reproducing Structural measures of similarity and complementarity in complex networks
 
 ## Abstract
 
-Write abstract last after the rest of the report is done.
+**Write abstract last after the rest of the report is done.**
 
 ## Introduction
 
 The paper "Structural measures of similarity and complementatiry in complex networks" [1] proposes measures for determining if networks are formed by underlying mechanisms of similarity and/or complementarity. They attribute these properties to specific motifs, triangles for similarity and quadrangles for complementarity.
 
 **Write more about the paper here - should be easily possible to get around pages from just summarizing the paper methods and results related to social networks that are important for our project.**
+
+## Social Network Analysis
+
+Social network analysis is the study of social networks, which are networks of individuals or organizations that are connected by social relationships. There are many different measures that are commonly used in social network analysis to quantify and analyze the structure and properties of social networks. Some examples of these measures include:
+
+    Degree: The degree of a node in a network is the number of connections it has to other nodes.
+    Centrality: Centrality measures are used to identify the most important or influential nodes in a network. Examples of centrality measures include betweenness centrality, which measures the extent to which a node lies on the shortest path between other nodes, and closeness centrality, which measures the average distance from a node to all other nodes in the network.
+    Clustering coefficient: The clustering coefficient of a node in a network measures the extent to which its neighbors are also connected to each other.
+    Structural equivalence: Structural equivalence refers to the extent to which two nodes in a network have similar patterns of connections to other nodes.
+    Homophily: Homophily is the tendency for individuals or organizations in a network to form connections with others who are similar to them in some way.
+
+These are just a few examples of the many measures that are used in social network analysis. Overall, these measures can provide valuable insights into the structure and properties of social networks, and can be used to better understand the dynamics of social relationships.
 
 
 ## Similarity and Complementarity in Social Networks
@@ -66,6 +84,11 @@ To download the datasets, we have written a script that downloads the datasets a
 
 ## Methods
 
+**Describe the libraries used, also the ones used by Pathcensus**
+
+* NEMtropy
+* ...
+
 
 ### Null Model
 
@@ -86,6 +109,8 @@ We fitted undirected binary configuration models (UBCM)to the networks, and samp
 ** THIS IS EXAMPLE TEXT ** 
 The following is a sample text. All authors conceived and designed the project idea. P.M. and C.J.T. developed and wrote the business model. B.S. worked on the regulatory implications.  Y.Z. and X.Y. developed the technical implementation and wrote the technical section. Y.Z. wrote the critical overview of the plaftorm selected. All authors revised and accepted the final version of this document. 
 ** END OF EXAMPLE TEXT **
+
+
 ### References
 
 > Talaga, S., & Nowak, A. (2022). Structural measures of similarity

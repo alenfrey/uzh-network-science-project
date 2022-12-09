@@ -3,10 +3,14 @@ matplotlib
 pathcensus
 ipywidgets
 igraph
+pandas
 networkx
 markdown-word-count
 lxml
 -e .
 black
-natsorted
 markdown-word-count
+tabulate
+tqdm
+seaborn
+humanfriendly

@@ -28,9 +28,17 @@ quadrangles in large online social networks.
 
 ## Installation
 
-Python 3.8.3 is used for this project.
-To install the packages, run the following commandsa in the **project root directory**.
-(You might want to create a virtual envirionment first)
+Python 3.10 is used for this project.
+To install the packages, run the following commands in the **project root directory**.
+
+Create virtual environment and activate (optional but recommended)
+
+```bash
+virtualenv venv
+source venv/bin/activate
+```
+
+Install the packages
 
 ```bash
 pip install -r requirements.txt
@@ -60,11 +68,12 @@ which is rather heavy.
   - [ ] Offline Networks
     - [ ] Load the datasets and check basic stats
     - [ ] Create additional visualisations and statistics 
+- [x] Reproduce the results of the paper with their methodology (paper_replication folder)
 - [ ] Implement the algorithms from the paper in networkx (optional)
-  - [ ] Structural similarity
+  - [ ] Structural similarity [in progress @Alen]
   - [ ] Structural complementarity
 - [ ] Reproduce the results of the paper on other social networks
-  - [ ] Large online networks
+  - [ ] Large online networks [in progress @Alen] (original_method_large_online.ipynb)
   - [ ] Small online networks
   - [ ] Large offline networks
   - [ ] Small offline networks 
@@ -85,8 +94,11 @@ which is rather heavy.
 
 ## Individual Contributions
 
-| File                 | Description       | Contributors   
-|---|---|---|
-| project_proposal.pdf | Project proposal       | Keisuke Yokota, Alen Frey  |   
-| -                    | Data preparation       |                            |   
-| -                    | Result Visualisation   |                            |   
+|    | File                             | Description                            | Contributor   |
+|---:|:---------------------------------|:---------------------------------------|:--------------|
+|  0 | project_proposal.pdf             | Project Proposal                       | Keisuke, Alen |
+|  1 | explore_network_properties.ipynb | Exploration of available datasets      | Alen          |
+|  2 | group_available_datasets.ipynb   | Group and structure available datasets | Alen          |
+|  3 | paper_replication/*              | Relplicate paper results               | Alen          |
+|  4 | download_datasets.ipynb          | Download script for social networks    | Alen          |
+|  5 | report.md                        | Written report of project              | Alen          |

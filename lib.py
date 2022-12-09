@@ -4,6 +4,9 @@ import networkx as nx
 import zstandard
 import urllib.request
 import pandas as pd
+import json
+import tempfile
+
 
 from collections import namedtuple
 from sparklines import sparklines
@@ -15,8 +18,8 @@ from pathlib import Path
 
 PROJECT_ROOT_DIR_PATH = Path(__file__).parent.absolute()  # project root dir path
 DATA_DIR_PATH = PROJECT_ROOT_DIR_PATH / "data"  # data dir path
-ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online" # online networks data dir path
-ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online" # offline networks data dir path
+ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online"  # online networks data dir path
+ONLINE_DATA_DIR_PATH = DATA_DIR_PATH / "online"  # offline networks data dir path
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # FUNCTIONS
@@ -41,6 +44,7 @@ def logarithmic_bins(values: np.array, n_bins: int) -> np.array:
     # np.geomspace(min(values), max(values) + 1, num=n_bins) is functionally equivalent
     return np.logspace(np.log10(min(values)), np.log10(max(values) + 1), n_bins + 1)
 
+
 def max_degree(g: nx.Graph):
     """Node with the highest degree
     in a nx.Graph.
@@ -55,11 +59,11 @@ def max_degree(g: nx.Graph):
     contains the degree.
     """
     MaxDegreeTuple = namedtuple(
-    "MaxDegreeTuple", ["id", "degree"]
-)  # define max degree as named tuple
+        "MaxDegreeTuple", ["id", "degree"]
+    )  # define max degree as named tuple
     return MaxDegreeTuple(*max(g.degree(), key=lambda t: t[1]))  # return namedtuple
 
-    
+
 def plot_distribution(
     values,
     title,
@@ -99,10 +103,11 @@ def plot_labeled_scatter(x, y, x_label, y_label, title) -> None:
 
 
 def sparkline_str(x):
-    bins=np.histogram(x)[0]
-    sl = ''.join(sparklines(bins))
+    bins = np.histogram(x)[0]
+    sl = "".join(sparklines(bins))
     return sl
     sparkline_str.__name__ = "sparkline"
+
 
 sparkline_str.__name__ = "sparkline"
 
@@ -113,7 +118,7 @@ def download_and_extract(url, out_path):
     """
     dctx = zstandard.ZstdDecompressor()
     with urllib.request.urlopen(url) as url:
-        dctx.copy_stream(url, open(out_path, 'wb'))
+        dctx.copy_stream(url, open(out_path, "wb"))
 
 
 def get_filename_from_url(url: str) -> str:
@@ -142,3 +147,55 @@ def change_file_suffix(filename: str, suffix: str) -> str:
     Change file suffix from filename.
     """
     return ".".join([filename.split(".")[0], suffix])
+
+
+def get_all_netzschleuder_network_keys():
+    with urllib.request.urlopen("https://networks.skewed.de/api/nets") as url:
+        data = json.load(url)
+        return list(data)
+
+
+def get_netzschleuder_network_info(network_key):
+    """
+    Returns a dictionary with infos for a given network key
+    """
+    with urllib.request.urlopen(
+        "https://networks.skewed.de/api/net/" + network_key
+    ) as url:
+        data = json.load(url)
+        return data
+
+
+def gml_cleaner(gml_file_path):
+    """
+    Cleans gml files from https://networks.skewed.de/
+    """
+
+    def valid_gml_filter(line):
+        valid_content = "[" in line or "]" in line
+        valid_fields = (
+            "id" in line or "source" in line or "target" in line or "multigraph" in line
+        )
+        valid_split = len(line.split()) < 3
+        return (valid_content or valid_fields) and valid_split
+
+    def valid_gml_filter_special_cases(line):
+        return not "_graphml_edge_id" in line
+
+    with open(gml_file_path) as gml_file:
+        lines = [line for line in gml_file]
+        valid_lines = [line for line in (filter(valid_gml_filter, lines))]
+        valid_lines = [
+            line for line in (filter(valid_gml_filter_special_cases, valid_lines))
+        ]
+        # valid_lines.insert(1, "multigraph 1\n")
+        # print(valid_lines[:3])
+
+        with open(DATA_DIR_PATH / "test.txt", "w") as output:
+            for valid_line in valid_lines:
+                output.write(valid_line)
+        tf = tempfile.TemporaryFile()
+
+        tf.write(bytes("".join(valid_lines), encoding="utf-8"))
+        tf.seek(0)
+    return tf

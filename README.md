@@ -80,6 +80,7 @@ which is rather heavy.
 - [x] ~~Implement the algorithms from the paper in networkx~~ -> tested and works already
   - [x] ~~Structural similarity~~
   - [x] ~~Structural complementarity~~
+- [x] Port the script from the paper to networkx instead igraph and graph-tool
 - [ ] Reproduce the results of the paper on other social networks
   - [ ] Large online networks [in progress @Alen] (original_method_large_online.ipynb)
   - [ ] Small online networks

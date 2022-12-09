@@ -16,3 +16,4 @@ seaborn
 humanfriendly
 zstandard
 sparklines
+joblib

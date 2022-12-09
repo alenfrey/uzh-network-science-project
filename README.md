@@ -44,6 +44,14 @@ Install the packages
 pip install -r requirements.txt
 ```
 
+Download the datasets
+To do so, run the jupyter notebok download_datasets.ipynb
+
+```bash
+jupyter notebook download_datasets.ipynb
+```
+
+And then you are ready to go and run all the notebooks / scripts.
 ## Data
 
 Data used in this project is from the following sources:

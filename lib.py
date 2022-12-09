@@ -171,12 +171,9 @@ def gml_cleaner(gml_file_path):
     """
     Cleans gml files from https://networks.skewed.de/
     """
-
     def valid_gml_filter(line):
         valid_content = "[" in line or "]" in line
-        valid_fields = (
-            "id" in line or "source" in line or "target" in line or "multigraph" in line
-        )
+        valid_fields = "id" in line or "source" in line or "target" in line or "multigraph" in line
         valid_split = len(line.split()) < 3
         return (valid_content or valid_fields) and valid_split
 
@@ -186,17 +183,15 @@ def gml_cleaner(gml_file_path):
     with open(gml_file_path) as gml_file:
         lines = [line for line in gml_file]
         valid_lines = [line for line in (filter(valid_gml_filter, lines))]
-        valid_lines = [
-            line for line in (filter(valid_gml_filter_special_cases, valid_lines))
-        ]
+        valid_lines = [line for line in (filter(valid_gml_filter_special_cases, valid_lines))]
         # valid_lines.insert(1, "multigraph 1\n")
         # print(valid_lines[:3])
 
-        with open(DATA_DIR_PATH / "test.txt", "w") as output:
-            for valid_line in valid_lines:
-                output.write(valid_line)
+        #with open(DATA_DIR_PATH / "test.txt", "w") as output:
+        #    for valid_line in valid_lines:
+        #     output.write(valid_line)
         tf = tempfile.TemporaryFile()
-
+    
         tf.write(bytes("".join(valid_lines), encoding="utf-8"))
         tf.seek(0)
     return tf

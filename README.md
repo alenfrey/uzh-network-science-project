@@ -98,7 +98,8 @@ which is rather heavy.
 |---:|:---------------------------------|:---------------------------------------|:--------------|
 |  0 | project_proposal.pdf             | Project Proposal                       | Keisuke, Alen |
 |  1 | explore_network_properties.ipynb | Exploration of available datasets      | Alen          |
-|  2 | group_available_datasets.ipynb   | Group and structure available datasets | Alen          |
-|  3 | paper_replication/*              | Relplicate paper results               | Alen          |
-|  4 | download_datasets.ipynb          | Download script for social networks    | Alen          |
-|  5 | report.md                        | Written report of project              | Alen          |
+|  2 | lib.py                           | Library for functions                  | Alen          |
+|  3 | group_available_datasets.ipynb   | Group and structure available datasets | Alen          |
+|  4 | paper_replication/*              | Relplicate paper results               | Alen          |
+|  5 | download_datasets.ipynb          | Download script for social networks    | Alen          |
+|  6 | report.md                        | Written report of project              | Alen          |

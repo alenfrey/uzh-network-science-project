@@ -240,3 +240,13 @@ def statistics(graph: ig.Graph) -> pd.DataFrame:
         "coefs":   [coefs]
     }, index=[0])
     return df
+
+
+
+def preprocess_graph(g):
+    g = nx.Graph(g)  # remove multiedges if graph is multigraph
+    g.remove_edges_from(list(nx.selfloop_edges(g)))  # remove self-loops
+    largest_cc = max(
+        nx.connected_components(g), key=len
+    )  # get largest connected component
+    return g.subgraph(largest_cc).copy()

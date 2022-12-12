@@ -92,7 +92,9 @@ To download the datasets, we have written a script that downloads the datasets a
 
 * NEMtropy
 * ...
+In network science, there are many measures that can be used to analyze a network and understand its structure and properties. Some of these measures are correlated, meaning that they are related to each other in some way. For example, the degree centrality of a node in a network is directly related to its betweenness centrality, as nodes with a high degree (i.e. those that are connected to many other nodes) are more likely to have a high betweenness centrality. Similarly, the clustering coefficient of a node is related to its degree, as nodes with a high degree are more likely to form clusters within the network.
 
+We check if the similarity and complementarity measures are correlated with some network measures. We also check if the similarity and complementarity measures are correlated with each other.
 
 ### Null Model
 

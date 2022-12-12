@@ -210,7 +210,6 @@ def gml_cleaner(gml_file_path):
     return tf
 
 
-# convert between graph types
 def igraph_to_networkx(graph: ig.Graph) -> nx.Graph:
     """Convert igraph to networkx."""
     return nx.from_edgelist(graph.get_edgelist())

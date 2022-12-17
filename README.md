@@ -112,3 +112,4 @@ which is rather heavy.
 |  4 | paper_replication/*              | Relplicate paper results               | Alen          |
 |  5 | download_datasets.ipynb          | Download script for social networks    | Alen          |
 |  6 | report.md                        | Written report of project              | Alen          |
+|  7 | Presentation.pptx                | Presentation of project                | Alexey        |

@@ -26,6 +26,7 @@ OFFLINE_DATA_DIR_PATH = DATA_DIR_PATH / "offline"  # offline networks data dir p
 FIGURE_DIR_PATH = PROJECT_ROOT_DIR_PATH / "figures"  # figures dir path
 CODE_DIR_PATH = PROJECT_ROOT_DIR_PATH / "code"
 
+RESULT_DIR_PATH = CODE_DIR_PATH / "results"
 TEST_GRAPH_DIR_PATH = CODE_DIR_PATH / "networkx_implementation" / "test_graphs"
 
 DATA_DIR_PATH.mkdir(exist_ok=True)

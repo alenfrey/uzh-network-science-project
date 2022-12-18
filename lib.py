@@ -193,7 +193,7 @@ def gml_cleaner(gml_file_path):
     def valid_gml_filter_special_cases(line):
         return not "_graphml_edge_id" in line
 
-    with open(gml_file_path) as gml_file:
+    with open(gml_file_path,encoding='utf-8') as gml_file:
         lines = [line for line in gml_file]  # get lines
         valid_lines = [line for line in (filter(valid_gml_filter, lines))]
         valid_lines = [

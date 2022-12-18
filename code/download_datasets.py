@@ -5,7 +5,7 @@ BASE_URL = "https://networks.skewed.de/net/"
 
 all_online_networks = pd.read_csv(DATA_DIR_PATH / "online_social_networks.csv")
 
-progress = tqdm(unit="networks", total=len(all_online_networks))
+progress = tqdm(unit="network", total=len(all_online_networks))
 # download all online networks
 for i, row in all_online_networks.iterrows():
     size = row["nodes_qcut"]
@@ -21,7 +21,7 @@ for i, row in all_online_networks.iterrows():
     
 all_offline_networks = pd.read_csv(DATA_DIR_PATH / "offline_social_networks.csv")
 
-progress = tqdm(unit="networks", total=len(all_online_networks))
+progress = tqdm(unit="network", total=len(all_online_networks))
 
 # download all offline networks
 for i, row in all_offline_networks.iterrows():

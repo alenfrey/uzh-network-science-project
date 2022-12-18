@@ -8,6 +8,7 @@ import json
 import tempfile
 import igraph as ig
 import re
+import seaborn as sns
 
 from pathcensus import PathCensus
 from collections import namedtuple
@@ -259,3 +260,10 @@ def preprocess_graph(g):
 def dataset_size_filter(dataset_path, size):
     """Filter datasets by size, given in bytes."""
     return dataset_path.stat().st_size < size
+
+def plot_correlation_matrix(df, title):
+    plt.figure(figsize=(8, 8))
+    plt.title(title)
+    mask = np.triu(np.ones_like(df, dtype=bool))
+    sns.heatmap(df, annot=True, fmt=".2f", mask=mask, cmap="coolwarm")
+    plt.show()

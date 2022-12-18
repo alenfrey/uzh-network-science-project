@@ -192,17 +192,17 @@ def gml_cleaner(gml_file_path):
         return not "_graphml_edge_id" in line
 
     with open(gml_file_path) as gml_file:
-        lines = [line for line in gml_file] # get lines
-        valid_lines = [line for line in (filter(valid_gml_filter, lines))] 
+        lines = [line for line in gml_file]  # get lines
+        valid_lines = [line for line in (filter(valid_gml_filter, lines))]
         valid_lines = [
             line for line in (filter(valid_gml_filter_special_cases, valid_lines))
         ]
         # networkx doesnt like loading multigraphs without this next line,
         # which inserts a multigraph line in the second line of the file
-        valid_lines.insert(1, "multigraph 1\n") 
-        #print(valid_lines[:3])
+        valid_lines.insert(1, "multigraph 1\n")
+        # print(valid_lines[:3])
 
-        #with open(DATA_DIR_PATH / "test.txt", "w") as output:
+        # with open(DATA_DIR_PATH / "test.txt", "w") as output:
         #   for valid_line in valid_lines:
         #    output.write(valid_line)
         tf = tempfile.TemporaryFile()
@@ -231,17 +231,19 @@ def statistics(graph: ig.Graph) -> pd.DataFrame:
     """Function for calculating graph statistics."""
     paths = PathCensus(graph)
     coefs = paths.coefs("nodes")
-    df = pd.DataFrame({
-        "sim_g":   paths.similarity("global"),
-        "sim":     coefs["sim"].mean(),
-        "sim_e":   paths.similarity("edges").mean(),
-        "comp_g":  paths.complementarity("global"),
-        "comp":    coefs["comp"].mean(),
-        "comp_e":  paths.complementarity("edges").mean(),
-        "coefs":   [coefs]
-    }, index=[0])
+    df = pd.DataFrame(
+        {
+            "sim_g": paths.similarity("global"),
+            "sim": coefs["sim"].mean(),
+            "sim_e": paths.similarity("edges").mean(),
+            "comp_g": paths.complementarity("global"),
+            "comp": coefs["comp"].mean(),
+            "comp_e": paths.complementarity("edges").mean(),
+            "coefs": [coefs],
+        },
+        index=[0],
+    )
     return df
-
 
 
 def preprocess_graph(g):
@@ -251,3 +253,8 @@ def preprocess_graph(g):
         nx.connected_components(g), key=len
     )  # get largest connected component
     return g.subgraph(largest_cc).copy()
+
+
+def dataset_size_filter(dataset_path, size):
+    """Filter datasets by size, given in bytes."""
+    return dataset_path.stat().st_size < size

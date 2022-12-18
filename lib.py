@@ -8,6 +8,7 @@ import json
 import tempfile
 import igraph as ig
 import re
+import seaborn as sns
 
 from pathcensus import PathCensus
 from collections import namedtuple
@@ -26,6 +27,7 @@ OFFLINE_DATA_DIR_PATH = DATA_DIR_PATH / "offline"  # offline networks data dir p
 FIGURE_DIR_PATH = PROJECT_ROOT_DIR_PATH / "figures"  # figures dir path
 CODE_DIR_PATH = PROJECT_ROOT_DIR_PATH / "code"
 
+RESULT_DIR_PATH = CODE_DIR_PATH / "results"
 TEST_GRAPH_DIR_PATH = CODE_DIR_PATH / "networkx_implementation" / "test_graphs"
 
 DATA_DIR_PATH.mkdir(exist_ok=True)
@@ -192,17 +194,17 @@ def gml_cleaner(gml_file_path):
         return not "_graphml_edge_id" in line
 
     with open(gml_file_path) as gml_file:
-        lines = [line for line in gml_file] # get lines
-        valid_lines = [line for line in (filter(valid_gml_filter, lines))] 
+        lines = [line for line in gml_file]  # get lines
+        valid_lines = [line for line in (filter(valid_gml_filter, lines))]
         valid_lines = [
             line for line in (filter(valid_gml_filter_special_cases, valid_lines))
         ]
         # networkx doesnt like loading multigraphs without this next line,
         # which inserts a multigraph line in the second line of the file
-        valid_lines.insert(1, "multigraph 1\n") 
-        #print(valid_lines[:3])
+        valid_lines.insert(1, "multigraph 1\n")
+        # print(valid_lines[:3])
 
-        #with open(DATA_DIR_PATH / "test.txt", "w") as output:
+        # with open(DATA_DIR_PATH / "test.txt", "w") as output:
         #   for valid_line in valid_lines:
         #    output.write(valid_line)
         tf = tempfile.TemporaryFile()
@@ -231,23 +233,47 @@ def statistics(graph: ig.Graph) -> pd.DataFrame:
     """Function for calculating graph statistics."""
     paths = PathCensus(graph)
     coefs = paths.coefs("nodes")
-    df = pd.DataFrame({
-        "sim_g":   paths.similarity("global"),
-        "sim":     coefs["sim"].mean(),
-        "sim_e":   paths.similarity("edges").mean(),
-        "comp_g":  paths.complementarity("global"),
-        "comp":    coefs["comp"].mean(),
-        "comp_e":  paths.complementarity("edges").mean(),
-        "coefs":   [coefs]
-    }, index=[0])
+    df = pd.DataFrame(
+        {
+            "sim_g": paths.similarity("global"),
+            "sim": coefs["sim"].mean(),
+            "sim_e": paths.similarity("edges").mean(),
+            "comp_g": paths.complementarity("global"),
+            "comp": coefs["comp"].mean(),
+            "comp_e": paths.complementarity("edges").mean(),
+            "coefs": [coefs],
+        },
+        index=[0],
+    )
     return df
 
 
-
 def preprocess_graph(g):
+    """
+    Preprocess a nx.graph to replicate the preprocessing of the
+    paper "Structural measures of similarity and complementarity in complex networks".
+    """
     g = nx.Graph(g)  # remove multiedges if graph is multigraph
     g.remove_edges_from(list(nx.selfloop_edges(g)))  # remove self-loops
     largest_cc = max(
         nx.connected_components(g), key=len
     )  # get largest connected component
     return g.subgraph(largest_cc).copy()
+
+
+def dataset_size_filter(dataset_path : Path, size: int) -> bool:
+    """
+    Filter dataset by size, given in bytes.
+    """
+    return dataset_path.stat().st_size < size
+
+
+def plot_correlation_matrix(df: pd.DataFrame, title: str) -> None:
+    """
+    Plot a correlation matrix of a dataframe.
+    """
+    plt.figure(figsize=(8, 8))
+    plt.title(title)
+    mask = np.triu(np.ones_like(df, dtype=bool))
+    sns.heatmap(df, annot=True, fmt=".2f", mask=mask, cmap="coolwarm")
+    plt.show()

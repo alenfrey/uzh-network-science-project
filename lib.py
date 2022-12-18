@@ -28,6 +28,8 @@ CODE_DIR_PATH = PROJECT_ROOT_DIR_PATH / "code"
 
 TEST_GRAPH_DIR_PATH = CODE_DIR_PATH / "networkx_implementation" / "test_graphs"
 
+DATA_DIR_PATH.mkdir(exist_ok=True)
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # FUNCTIONS
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

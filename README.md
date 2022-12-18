@@ -121,6 +121,6 @@ which is rather heavy.
 | 13 | visualise_results_small_offline.ipynb| visualize the analysis(small_offline)| Said          |
 | 14 | overall_exploration.ipynb        | visualize the analysis(all networks)   | Alen          |
 | 15 | report.md                        | Written report of project              | Alen          |
-| 16 | Presentation.pptx                | Presentation of project(slides)        | Kei(1~12),Alexey(13~)|
-| 17 | Presentation.pptx                | Presentation of project(presentation)  | Kei(1~12),Alexey(13~)|
+| 16 | Presentation.pptx                | Presentation of project(slides)        | Kei(1-12),Alexey(13-)|
+| 17 | Presentation.pptx                | Presentation of project(presentation)  | Kei(1-12),Alexey(13-)|
 

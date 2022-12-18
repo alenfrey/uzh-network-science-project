@@ -249,6 +249,10 @@ def statistics(graph: ig.Graph) -> pd.DataFrame:
 
 
 def preprocess_graph(g):
+    """
+    Preprocess a nx.graph to replicate the preprocessing of the
+    paper "Structural measures of similarity and complementarity in complex networks".
+    """
     g = nx.Graph(g)  # remove multiedges if graph is multigraph
     g.remove_edges_from(list(nx.selfloop_edges(g)))  # remove self-loops
     largest_cc = max(
@@ -257,11 +261,17 @@ def preprocess_graph(g):
     return g.subgraph(largest_cc).copy()
 
 
-def dataset_size_filter(dataset_path, size):
-    """Filter datasets by size, given in bytes."""
+def dataset_size_filter(dataset_path : Path, size: int) -> bool:
+    """
+    Filter dataset by size, given in bytes.
+    """
     return dataset_path.stat().st_size < size
 
-def plot_correlation_matrix(df, title):
+
+def plot_correlation_matrix(df: pd.DataFrame, title: str) -> None:
+    """
+    Plot a correlation matrix of a dataframe.
+    """
     plt.figure(figsize=(8, 8))
     plt.title(title)
     mask = np.triu(np.ones_like(df, dtype=bool))

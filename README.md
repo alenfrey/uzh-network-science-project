@@ -112,8 +112,8 @@ which is rather heavy.
 |  3 | group_available_datasets.ipynb   | Group and structure available datasets | Alen          |
 |  4 | paper_replication/*              | Relplicate paper results               | Alen          |
 |  5 | download_datasets.ipynb          | Download script for social networks    | Alen          |
-|  6 | original_method_large_online.ipynb| analyze the networks(large online)    | Alen          |
-|  7 | visualise_results_large_online.ipynb| visualize the analysis(large online)| Alen          |
+|  6 | original_method_large_online.ipynb(template)| analyze the networks(large online)(template for others)    | Alen          |
+|  7 | visualise_results_large_online.ipynb(template)| visualize the analysis(large online)(template for others)| Alen          |
 |  8 | original_method_large_offline.ipynb| analyze the networks(large offline)    | Alexey          |
 |  9 | visualise_results_large_offline.ipynb| visualize the analysis(large offline)| Alexey          |
 | 10 | original_method_small_online.ipynb| analyze the networks(small online)    | Keisuke          |

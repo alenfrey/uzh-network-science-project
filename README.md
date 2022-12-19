@@ -12,16 +12,16 @@ science class at UZH.
 
 ## Abstract
 
-The recent paper [Structural measures of similarity and complementarity in complex networks](https://www.nature.com/articles/s41598-022-20710-w) describes algorithms for measuring properties of similarity and complementarity in networks. In the final project, we replicate the results of this paper and test the algorithms on additional social networks with differing scales.
+The recent paper [Structural measures of similarity and complementarity in complex networks](https://www.nature.com/articles/s41598-022-20710-w) describes algorithms for measuring properties of similarity and complementarity in networks. In the final project, we replicate the results of this paper and test the algorithms on additional social networks with differing sizes.
 
-The suggestion to test the structural coefficients on social networks with different sizes is also mentioned in the paper, where the authors mention that the structural coefficients of complementarity are more likely to be high in large social networks, which is in stark contrast to the fact that usually social networks in general are more driven by similarity. We test this hypothesis by comparing the structural coefficients of small and large social networks. Furthermore, we differentiate by online and offline social networks. 
+The suggestion to test the structural coefficients on social networks with different sizes is also mentioned in the paper, where the authors mention that the structural coefficients of complementarity are more likely to be high in large social networks, which if true would be in stark contrast to the fact that usually social networks in general are more driven by similarity. We test this hypothesis by comparing the structural coefficients of small and large social networks. Furthermore, we differentiate by online and offline social networks. 
 
 >Our results also point to important differences between social and biological networks. The former, with some
 exceptions of course, tend to be dominated by similarity while the latter are more structurally diverse, which
 probably reflects their heterogeneous functional properties and complex evolutionary history (we study this in
-more detail in “Structural diversity across the tree of life” section). However, it seems that large online social
+more detail in “Structural diversity across the tree of life” section). **However, it seems that large online social
 networks also feature increased complementarity relatively often (see Fig. 6A). Thus, it may be worthwhile to
-study differences between small and large as well as offline and online social networks in the future. In particular,
+study differences between small and large as well as offline and online social networks in the future.** In particular,
 to our best knowledge it is not yet clear what social processes are responsible for significantly high amounts of
 quadrangles in large online social networks.  
 > -- <cite> [Structural measures of similarity and complementarity in complex networks](https://www.nature.com/articles/s41598-022-20710-w) </cite>
@@ -45,13 +45,12 @@ pip install -r requirements.txt
 ```
 
 Download the datasets
-To do so, run the jupyter notebok download_datasets.ipynb
+To download the datasets used, run the following scripts in order:
+1. group_available_datasets.ipynb 
+2. download_datasets.py
 
-```bash
-jupyter notebook download_datasets.ipynb
-```
+After this, everthing is ready to run the other notebooks and scripts. 
 
-And then you are ready to go and run all the notebooks / scripts.
 ## Data
 
 Data used in this project is from the following sources:

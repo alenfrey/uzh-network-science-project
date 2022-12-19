@@ -81,23 +81,23 @@ which is rather heavy.
   - [x] ~~Structural complementarity~~
 - [x] Port the script from the paper to networkx instead igraph and graph-tool
 - [x] Reproduce the results of the paper on other social networks
-  - [x] Large online networks [in progress @Alen] (original_method_large_online.ipynb)
+  - [x] Large online networks
   - [x] Small online networks
   - [x] Large offline networks
   - [x] Small offline networks 
  - [x] Do analysis on all the networks simultaneously
-- [ ] Finish report
-- [ ] Create presentation slides
-- [ ] Film video presentation
+- [x] Finish report
+- [x] Create presentation slides
+- [x] Film video presentation
 
 
 ## Checklist for Submission
 
 - [x] all code used
 - [x] all data used
-- [x ] written report
-- [x ] video presentation (20 min)
-- [x ] slides of presentation
+- [x] written report
+- [x] video presentation (20 min)
+- [x] slides of presentation
 
 
 

@@ -20,3 +20,4 @@ joblib
 statannotations
 ward
 mandarina
+scikit-learn

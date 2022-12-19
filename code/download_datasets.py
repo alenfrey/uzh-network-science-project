@@ -17,8 +17,8 @@ for i, row in all_online_networks.iterrows():
     local_path = remove_file_suffix(str(local_dir / filename))
     download_and_extract(url, local_path)
     progress.update(1)
-    
-    
+
+
 all_offline_networks = pd.read_csv(DATA_DIR_PATH / "offline_social_networks.csv")
 
 progress = tqdm(unit="network", total=len(all_offline_networks))

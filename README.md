@@ -118,11 +118,10 @@ which is rather heavy.
 | 10 | original_method_small_online.ipynb| analyze the networks(small online)    | Keisuke          |
 | 11 | visualise_results_small_online.ipynb| visualize the analysis(small online)| Keisuke          |
 | 12 | original_method_small_offline.ipynb| analyze the networks(small_offline)    | Said          |
-| 13 | not included download.py file differing from the download_Datasets.ipynb    | Said          |
 | 13 | social_networks_small_offline.ipynb| analyze the networks(small_offline)    | Said          |
 | 14 | visualise_results_small_offline.ipynb| visualize the analysis(small_offline)| Keisuke           |
 | 15 | overall_exploration.ipynb        | visualize the analysis(all networks)   | Alen          |
-| 16 | report.md                        | Written report of project              | Said          |
+| 16 | Exercise_X__Model___Report (1).pdf | Written report of project              | Said          |
 | 17 | Presentation.pptx                | Presentation of project(slides)        | Kei(1-12),Alexey(13-)|
 | 18 | Presentation.pptx                | Presentation of project(presentation)  | Kei(1-12),Alexey(13-)|
 

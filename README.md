@@ -121,7 +121,7 @@ which is rather heavy.
 | 13 | social_networks_small_offline.ipynb| analyze the networks(small_offline)    | Said          |
 | 14 | visualise_results_small_offline.ipynb| visualize the analysis(small_offline)| Keisuke           |
 | 15 | overall_exploration.ipynb        | visualize the analysis(all networks)   | Alen          |
-| 16 | Exercise_X__Model___Report (1).pdf | Written report of project              | Said          |
+| 16 | final_report.pdf | Written report of project              | Said          |
 | 17 | Presentation.pptx                | Presentation of project(slides)        | Kei(1-12),Alexey(13-)|
 | 18 | Presentation.pptx                | Presentation of project(presentation)  | Kei(1-12),Alexey(13-)|
 

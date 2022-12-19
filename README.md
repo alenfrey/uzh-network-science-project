@@ -8,7 +8,7 @@ science class at UZH.
 * Alexey Buyakofu 22-737-225
 * Alen Frey 22-732-473
 * Keisuke Yokota 22-738-165
-* Said Haji Abukar
+* Said Haji Abukar 19-724-718
 
 ## Abstract
 

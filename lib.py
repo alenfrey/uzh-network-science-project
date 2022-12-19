@@ -57,7 +57,8 @@ def logarithmic_bins(values: np.array, n_bins: int) -> np.array:
 
 
 def max_degree(g: nx.Graph):
-    """Node with the highest degree
+    """
+    Node with the highest degree
     in a nx.Graph.
 
     If there are multiple nodes with the maximum degree,
@@ -95,7 +96,7 @@ def plot_distribution(
 
 def plot_vertical_line(x, label: str) -> None:
     """
-    Adds a vertival line to a matplotlib plot.
+    Add a vertival line to a matplotlib plot.
     """
     plt.axvline(x=x, color="red", label=label)
 
@@ -114,6 +115,9 @@ def plot_labeled_scatter(x, y, x_label, y_label, title) -> None:
 
 
 def sparkline_str(x):
+    """
+    Create a sparkline histogram.
+    """
     bins = np.histogram(x)[0]
     sl = "".join(sparklines(bins))
     return sl
@@ -177,6 +181,13 @@ def get_netzschleuder_network_info(network_key):
         return data
 
 
+def get_dataset_citation(dataset_key: str) -> str:
+    """
+    Return citation of a network from netzschleuder
+    """
+    return get_netzschleuder_network_info(dataset_key)["citation"][0][0]
+
+
 def gml_cleaner(gml_file_path):
     """
     Cleans gml files from https://networks.skewed.de/
@@ -193,7 +204,7 @@ def gml_cleaner(gml_file_path):
     def valid_gml_filter_special_cases(line):
         return not "_graphml_edge_id" in line
 
-    with open(gml_file_path,encoding='utf-8') as gml_file:
+    with open(gml_file_path, encoding="utf-8") as gml_file:
         lines = [line for line in gml_file]  # get lines
         valid_lines = [line for line in (filter(valid_gml_filter, lines))]
         valid_lines = [
@@ -261,7 +272,7 @@ def preprocess_graph(g):
     return g.subgraph(largest_cc).copy()
 
 
-def dataset_size_filter(dataset_path : Path, size: int) -> bool:
+def dataset_size_filter(dataset_path: Path, size: int) -> bool:
     """
     Filter dataset by size, given in bytes.
     """

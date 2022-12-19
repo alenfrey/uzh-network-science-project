@@ -69,23 +69,24 @@ which is rather heavy.
   - [x] Find available datasets
   - [x] Group the datasets
 - [x] Create reproducible dataset download script (download_datasets.ipynb)
-- [ ] Explore and visualise properties of the datasets (explore_network_properties.ipynb)
-  - [ ] Online Networks 
+- [x] Explore and visualise properties of the datasets (explore_network_properties.ipynb)
+  - [x] Online Networks 
     - [x] Load the datasets and check basic stats
-    - [ ] Create additional visualisations and statistics
-  - [ ] Offline Networks
-    - [ ] Load the datasets and check basic stats
-    - [ ] Create additional visualisations and statistics 
+    - [x] Create additional visualisations and statistics
+  - [x] Offline Networks
+    - [x] Load the datasets and check basic stats
+    - [x] Create additional visualisations and statistics 
 - [x] Reproduce the results of the paper with their methodology (paper_replication folder)
 - [x] ~~Implement the algorithms from the paper in networkx~~ -> tested and works already
   - [x] ~~Structural similarity~~
   - [x] ~~Structural complementarity~~
 - [x] Port the script from the paper to networkx instead igraph and graph-tool
-- [ ] Reproduce the results of the paper on other social networks
-  - [ ] Large online networks [in progress @Alen] (original_method_large_online.ipynb)
-  - [ ] Small online networks
-  - [ ] Large offline networks
-  - [ ] Small offline networks 
+- [x] Reproduce the results of the paper on other social networks
+  - [x] Large online networks [in progress @Alen] (original_method_large_online.ipynb)
+  - [x] Small online networks
+  - [x] Large offline networks
+  - [x] Small offline networks 
+ - [x] Do analysis on all the networks simultaneously
 - [ ] Finish report
 - [ ] Create presentation slides
 - [ ] Film video presentation
@@ -93,8 +94,8 @@ which is rather heavy.
 
 ## Checklist for Submission
 
-- [ ] all code used
-- [ ] all data used
+- [x] all code used
+- [x] all data used
 - [ ] written report
 - [ ] video presentation (20 min)
 - [ ] slides of presentation
@@ -121,6 +122,6 @@ which is rather heavy.
 | 13 | visualise_results_small_offline.ipynb| visualize the analysis(small_offline)| Keisuke           |
 | 14 | overall_exploration.ipynb        | visualize the analysis(all networks)   | Alen          |
 | 15 | report.md                        | Written report of project              | Alen          |
-| 16 | Presentation.pptx                | Presentation of project(slides)        | Kei(1~12),Alexey(13~)|
-| 17 | Presentation.pptx                | Presentation of project(presentation)  | Kei(1~12),Alexey(13~)|
+| 16 | Presentation.pptx                | Presentation of project(slides)        | Kei(1-12),Alexey(13-)|
+| 17 | Presentation.pptx                | Presentation of project(presentation)  | Kei(1-12),Alexey(13-)|
 
